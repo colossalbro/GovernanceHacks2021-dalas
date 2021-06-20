@@ -66,7 +66,7 @@ class _CategoriesState extends State<Categories> {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage(categories[index].imgPath),
+                      image: AssetImage('${categories[index].imgPath}'),
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   ),
