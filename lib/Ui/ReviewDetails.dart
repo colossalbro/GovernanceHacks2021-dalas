@@ -24,12 +24,12 @@ class _ReviewPageState extends State<ReviewPage> {
           Expanded(
             flex: 6,
             child: Container(
-              padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 0.0),
+              padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    flex: 3,
+                    flex: 4,
                     child: Column(
                       children: [
                         Row(
@@ -141,8 +141,7 @@ class _ReviewPageState extends State<ReviewPage> {
                   Expanded(
                     flex: 6,
                     child: Container(
-                      margin: EdgeInsets.only(bottom: 20.0),
-                      padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
+                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 20.0),
                       child: CarouselSlider(
                         items: containers,
                         options: CarouselOptions(
