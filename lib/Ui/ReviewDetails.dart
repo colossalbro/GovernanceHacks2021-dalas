@@ -155,24 +155,29 @@ class _ReviewPageState extends State<ReviewPage> {
                   Expanded(
                     flex: 2,
                     child: Container(
-                      margin: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                      margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Tag(
-                            prefix: '100+',
+                            prefix: Text('100+'),
                             suffix: 'Reviews',
                             ontap: () => print('working'),
                           ),
                           Tag(
-                            prefix: '80%',
+                            prefix: Text('80%'),
                             suffix: 'Score',
                             ontap: () => print('working'),
                           ),
                           Tag(
-                            prefix: '5+',
+                            prefix: Text('5+'),
                             suffix: 'Awards',
                             ontap: () => print('working'),
+                          ),
+                          Tag(
+                            prefix: Icon(Icons.view_headline_sharp),
+                            suffix: 'Profile',
+                            ontap: () => print('testing'),
                           ),
                         ],
                       ),
@@ -252,7 +257,8 @@ class _ReviewPageState extends State<ReviewPage> {
 }
 
 class Tag extends StatefulWidget {
-  final String prefix, suffix;
+  final String suffix;
+  final Widget prefix;
   final Function ontap;
 
   Tag({required this.prefix, required this.suffix, required this.ontap});
@@ -287,10 +293,7 @@ class _TagState extends State<Tag> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              widget.prefix,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
-            ),
+            widget.prefix,
             Text(
               widget.suffix,
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 17.0),
