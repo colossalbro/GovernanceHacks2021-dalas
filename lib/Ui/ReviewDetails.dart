@@ -12,27 +12,31 @@ class _ReviewPageState extends State<ReviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xFFEDF1F9),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [Image.asset('images/profile.png')],
-          )),
+        backgroundColor: Color(0xFFEDF1F9),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [Image.asset('images/profile.png')],
+        ),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
+            flex: 6,
             child: Container(
-              padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+              padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 0.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
+                    flex: 3,
                     child: Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Image.asset('images/profile.png'),
+                            Image.asset(
+                                'images/carousel/paystack/paystack.png'),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,15 +89,16 @@ class _ReviewPageState extends State<ReviewPage> {
                               children: [
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0)),
-                                      shadowColor: Colors.white,
-                                      side: BorderSide(
-                                        color: Color(0xFF00FFFE),
-                                      ),
-                                      primary: Colors.white,
-                                      onPrimary: Color(0xFF00FFFE)),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0)),
+                                    shadowColor: Colors.white,
+                                    side: BorderSide(
+                                      color: Color(0xFF00FFFE),
+                                    ),
+                                    primary: Colors.white,
+                                    onPrimary: Color(0xFF00FFFE),
+                                  ),
                                   onPressed: () => print('add to salad bowl'),
                                   child: Row(
                                     children: [
@@ -116,7 +121,7 @@ class _ReviewPageState extends State<ReviewPage> {
                                     primary: Color(0xFF00FFFE),
                                     onPrimary: Colors.white,
                                   ),
-                                  onPressed: () => print('add to salad bowl'),
+                                  onPressed: () => print('post a review'),
                                   child: Row(
                                     children: [
                                       Text(
@@ -130,41 +135,48 @@ class _ReviewPageState extends State<ReviewPage> {
                             ),
                           ],
                         ),
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.only(bottom: 20.0),
-                            padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
-                            child: CarouselSlider(
-                              items: containers,
-                              options: CarouselOptions(
-                                height: 400,
-                                autoPlay: true,
-                                enableInfiniteScroll: false,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              ElevatedButton(
-                                  onPressed: () => print('button pressed'),
-                                  child: Column()),
-                              ElevatedButton(
-                                  onPressed: () => print('button pressed'),
-                                  child: Column()),
-                              ElevatedButton(
-                                  onPressed: () => print('button pressed'),
-                                  child: Column()),
-                              ElevatedButton(
-                                  onPressed: () => print('button pressed'),
-                                  child: Column()),
-                            ],
-                          ),
-                        ),
                       ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 20.0),
+                      padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
+                      child: CarouselSlider(
+                        items: containers,
+                        options: CarouselOptions(
+                          height: 400,
+                          autoPlay: true,
+                          enableInfiniteScroll: false,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Tag(
+                            prefix: '100+',
+                            suffix: 'Reviews',
+                            ontap: () => print('working'),
+                          ),
+                          Tag(
+                            prefix: '80%',
+                            suffix: 'Score',
+                            ontap: () => print('working'),
+                          ),
+                          Tag(
+                            prefix: '5+',
+                            suffix: 'Awards',
+                            ontap: () => print('working'),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -172,6 +184,7 @@ class _ReviewPageState extends State<ReviewPage> {
             ),
           ),
           Expanded(
+            flex: 5,
             child: Container(
               padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
               child: ListView.builder(
@@ -215,16 +228,16 @@ class _ReviewPageState extends State<ReviewPage> {
                                   'He\'ll want to use your yatch, and I don\'t\nwant this thing smelling like fish',
                                   textAlign: TextAlign.start,
                                   overflow: TextOverflow.ellipsis,
-                                )
+                                ),
                               ],
                             ),
                           ],
                         ),
                         Container(
-                          padding: EdgeInsets.fromLTRB(150, 0.0, 150.0, 0.0),
+                          margin: EdgeInsets.fromLTRB(80.0, 3.0, 0.0, 0.0),
                           width: double.infinity,
-                          height: 0.8,
-                          color: Colors.grey[400],
+                          height: 0.4,
+                          color: Colors.grey,
                         )
                       ],
                     ),
@@ -239,25 +252,76 @@ class _ReviewPageState extends State<ReviewPage> {
   }
 }
 
+class Tag extends StatefulWidget {
+  final String prefix, suffix;
+  final Function ontap;
+
+  Tag({required this.prefix, required this.suffix, required this.ontap});
+
+  bool decorate = false;
+  BoxDecoration decor = BoxDecoration();
+
+  @override
+  _TagState createState() => _TagState();
+}
+
+class _TagState extends State<Tag> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          (widget.decorate == false)
+              ? widget.decorate = true
+              : widget.decorate = false;
+          (widget.decorate == true)
+              ? widget.decor = BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Color(0xFF00FFFE)),
+                )
+              : widget.decor = BoxDecoration();
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+        decoration: widget.decor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              widget.prefix,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
+            ),
+            Text(
+              widget.suffix,
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 17.0),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 List<Container> containers = [
   Container(
     width: 200.0,
     height: 200.0,
-    color: Colors.black,
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        fit: BoxFit.fill,
+        image: AssetImage('images/carousel/paystack/vector.png'),
+      ),
+    ),
   ),
   Container(
     width: 200.0,
     height: 200.0,
-    color: Colors.pink,
-  ),
-  Container(
-    width: 200.0,
-    height: 200.0,
-    color: Colors.blue,
-  ),
-  Container(
-    width: 200.0,
-    height: 200.0,
-    color: Colors.brown,
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        fit: BoxFit.fill,
+        image: AssetImage('images/carousel/paystack/vector1.png'),
+      ),
+    ),
   ),
 ];

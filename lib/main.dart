@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(
   MaterialApp(
-    home: Landing(),
-  ),
+    debugShowCheckedModeBanner: false,
+        home: Landing(),
+      ),
 );
 
 class Landing extends StatefulWidget {
