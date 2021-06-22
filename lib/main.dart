@@ -1,5 +1,6 @@
-import 'package:Dalas/Ui/ReviewDetails.dart';
+import 'Ui/ReviewDetails.dart';
 import 'package:flutter/material.dart';
+import 'Ui/Explore.dart';
 
 void main() => runApp(
   MaterialApp(
@@ -18,6 +19,6 @@ class Landing extends StatefulWidget {
 class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
-    return ReviewPage();
+    return Explore();
   }
 }
