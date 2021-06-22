@@ -91,15 +91,11 @@ class _LandingPageState extends State<LandingPage> {
       body: BlocBuilder<NavigationBloc, CurrentPage>(
         bloc: widget._bloc,
         builder: (context, state) {
-          if (state is HomePage) {
+          if (state is HomePage)
             return WelcomePage();
-          } else if (state is FeedsPage)
-            return Center(
-              child: Text('Feeds Page'),
-            );
-          else if (state is WatchListPage) {
-            return WatchList();
-          }
+          else if (state is FeedsPage)
+            return Feeds();
+          else if (state is WatchListPage) return WatchList();
 
           return Container();
         },
