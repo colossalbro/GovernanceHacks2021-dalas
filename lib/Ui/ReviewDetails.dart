@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ReviewPage extends StatefulWidget {
+  String display = 'review';
+
   @override
   _ReviewPageState createState() => _ReviewPageState();
 }
@@ -162,7 +164,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           Tag(
                             prefix: Text('100+'),
                             suffix: 'Reviews',
-                            ontap: () => print('working'),
+                            ontap: () => setState(() {
+                              widget.display = 'review';
+                            }),
                           ),
                           Tag(
                             prefix: Text('80%'),
@@ -177,7 +181,10 @@ class _ReviewPageState extends State<ReviewPage> {
                           Tag(
                             prefix: Icon(Icons.view_headline_sharp),
                             suffix: 'Profile',
-                            ontap: () => print('testing'),
+                            ontap: () => setState(() {
+                              widget.display = 'profile';
+                              print(widget.display);
+                            }),
                           ),
                         ],
                       ),
@@ -189,18 +196,20 @@ class _ReviewPageState extends State<ReviewPage> {
           ),
           Expanded(
             flex: 5,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(bottom: 10.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Image.asset(
+            child: (widget.display == 'review')
+                ? Container(
+                    padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 10.0),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(
                               'images/profile.png',
                               scale: 0.8,
                             ),
@@ -238,17 +247,19 @@ class _ReviewPageState extends State<ReviewPage> {
                           ],
                         ),
                         Container(
-                          margin: EdgeInsets.fromLTRB(80.0, 3.0, 0.0, 0.0),
-                          width: double.infinity,
-                          height: 0.4,
-                          color: Colors.grey,
-                        )
-                      ],
+                                margin:
+                                    EdgeInsets.fromLTRB(80.0, 3.0, 0.0, 0.0),
+                                width: double.infinity,
+                                height: 0.4,
+                                color: Colors.grey,
+                              )
+                            ],
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
-            ),
+                  )
+                : Text('something else'),
           ),
         ],
       ),
@@ -285,6 +296,7 @@ class _TagState extends State<Tag> {
                   border: Border.all(color: Color(0xFF00FFFE)),
                 )
               : widget.decor = BoxDecoration();
+          widget.ontap;
         });
       },
       child: Container(

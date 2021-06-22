@@ -1,12 +1,16 @@
-import 'package:Dalas/Ui/Categories.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:Dalas/Ui/Categories.dart';
 import 'package:flutter/material.dart';
 import 'Ui/ReviewDetails.dart';
+import 'Blocs/navBloc.dart';
 import 'Ui/watchlist.dart';
-import 'Ui/Explore.dart';
+import 'Ui/HomePage.dart';
+import 'Ui/Feeds.dart';
 
 void main() => runApp(
-  MaterialApp(
+      MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Landing(),
       ),
@@ -27,8 +31,79 @@ class _LandingState extends State<Landing> {
       imageSrc: 'images/logo.png',
       imageSize: 100,
       duration: 5000,
-      navigateRoute: WatchList(),
+      navigateRoute: LandingPage(),
     );
     ;
+  }
+}
+
+class LandingPage extends StatefulWidget {
+  NavigationBloc _bloc = NavigationBloc();
+  int index = 0;
+  Color active = Color(0xFF00FFFE);
+
+  @override
+  _LandingPageState createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFEDF1F9),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              widget._bloc.appBarTitle,
+              style: TextStyle(color: Colors.black),
+            ),
+            Image.asset('images/profile.png')
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() => widget.index = 2);
+          widget._bloc.add(GoFeed());
+        },
+        backgroundColor: widget.active,
+        child: Image.asset('images/carrot.png'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        activeColor: widget.active,
+        inactiveColor: Colors.black,
+        gapLocation: GapLocation.center,
+        onTap: (num) => (num == 0)
+            ? {setState(() => widget.index = 0), widget._bloc.add(GoHome())}
+            : {
+                setState(() => widget.index = 1),
+                widget._bloc.add(GoWatchList())
+              },
+        activeIndex: widget.index,
+        icons: [
+          Icons.compare_arrows_rounded,
+          Icons.rice_bowl_sharp,
+        ],
+      ),
+      body: BlocBuilder<NavigationBloc, CurrentPage>(
+        bloc: widget._bloc,
+        builder: (context, state) {
+          if (state is HomePage) {
+            return WelcomePage();
+          } else if (state is FeedsPage)
+            return Center(
+              child: Text('Feeds Page'),
+            );
+          else if (state is WatchListPage) {
+            return WatchList();
+          }
+
+          return Container();
+        },
+      ),
+    );
   }
 }

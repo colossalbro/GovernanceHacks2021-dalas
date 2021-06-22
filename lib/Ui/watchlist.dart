@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class WatchList extends StatefulWidget {
@@ -10,27 +11,12 @@ class WatchList extends StatefulWidget {
 class _WatchListState extends State<WatchList> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFEDF1F9),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Watchlist',
-              style: TextStyle(color: Colors.black),
-            ),
-            Image.asset('images/profile.png')
-          ],
-        ),
-      ),
-      body: ListView.builder(
-          physics: BouncingScrollPhysics(),
-          itemCount: companies.length,
-          itemBuilder: (context, index) {
-            return companies[index];
-          }),
-    );
+    return ListView.builder(
+        physics: BouncingScrollPhysics(),
+        itemCount: companies.length,
+        itemBuilder: (context, index) {
+          return companies[index];
+        });
   }
 }
 
