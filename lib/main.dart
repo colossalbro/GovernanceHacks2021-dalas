@@ -1,5 +1,6 @@
-import 'Ui/ReviewDetails.dart';
+import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:flutter/material.dart';
+import 'Ui/ReviewDetails.dart';
 import 'Ui/Explore.dart';
 
 void main() => runApp(
@@ -19,6 +20,13 @@ class Landing extends StatefulWidget {
 class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
-    return Explore();
+    return SplashScreenView(
+      backgroundColor: Colors.white,
+      imageSrc: 'images/logo.png',
+      imageSize: 100,
+      duration: 5000,
+      navigateRoute: Explore(),
+    );
+    ;
   }
 }
