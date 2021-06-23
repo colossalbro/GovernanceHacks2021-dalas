@@ -1,3 +1,4 @@
+import 'package:Dalas/Ui/PostReview.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,11 +11,11 @@ import 'Ui/HomePage.dart';
 import 'Ui/Feeds.dart';
 
 void main() => runApp(
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Landing(),
-      ),
-    );
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Landing(),
+  ),
+);
 
 class Landing extends StatefulWidget {
   const Landing({Key? key}) : super(key: key);
@@ -33,7 +34,6 @@ class _LandingState extends State<Landing> {
       duration: 5000,
       navigateRoute: LandingPage(),
     );
-    ;
   }
 }
 
@@ -50,6 +50,7 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Color(0xFFEDF1F9),
         title: Row(
@@ -79,9 +80,9 @@ class _LandingPageState extends State<LandingPage> {
         onTap: (num) => (num == 0)
             ? {setState(() => widget.index = 0), widget._bloc.add(GoHome())}
             : {
-                setState(() => widget.index = 1),
-                widget._bloc.add(GoWatchList())
-              },
+          setState(() => widget.index = 1),
+          widget._bloc.add(GoWatchList())
+        },
         activeIndex: widget.index,
         icons: [
           Icons.compare_arrows_rounded,
@@ -94,8 +95,17 @@ class _LandingPageState extends State<LandingPage> {
           if (state is HomePage)
             return WelcomePage();
           else if (state is FeedsPage)
-            return Feeds();
-          else if (state is WatchListPage) return WatchList();
+            return Feeds(
+              bloc: widget._bloc,
+            );
+          else if (state is WatchListPage)
+            return WatchList(
+              bloc: widget._bloc,
+            );
+          else if (state is PostReviewPage)
+            return NewPost(
+              bloc: widget._bloc,
+            );
 
           return Container();
         },

@@ -19,7 +19,9 @@ class NavigationBloc extends Bloc<PageEvent, CurrentPage> {
       yield* _mapHomePageToState(event);
     else if (event is GoFeed)
       yield* _mapFeedsPageToState(event);
-    else if (event is GoWatchList) yield* _mapWatchListToState(event);
+    else if (event is GoWatchList)
+      yield* _mapWatchListToState(event);
+    else if (event is PostReview) yield* _mapPostReviewToState(event);
   }
 
   Stream<CurrentPage> _mapHomePageToState(GoHome event) async* {
@@ -35,5 +37,10 @@ class NavigationBloc extends Bloc<PageEvent, CurrentPage> {
   Stream<CurrentPage> _mapWatchListToState(GoWatchList event) async* {
     _appBarTitle = 'Watchlist';
     yield WatchListPage();
+  }
+
+  Stream<CurrentPage> _mapPostReviewToState(PostReview event) async* {
+    _appBarTitle = 'Post Review';
+    yield PostReviewPage();
   }
 }

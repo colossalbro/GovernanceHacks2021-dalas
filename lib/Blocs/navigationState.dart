@@ -24,3 +24,7 @@ class WatchListPage extends CurrentPage {
 class FeedsPage extends CurrentPage {
   FeedsPage() : super(pageNum: 2);
 }
+
+class PostReviewPage extends CurrentPage {
+  PostReviewPage() : super(pageNum: 3);
+}

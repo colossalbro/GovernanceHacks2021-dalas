@@ -23,6 +23,48 @@ List<Category> categories = [
       imgPath: 'images/categories/vector.png',
       hearts: 120,
       name: 'Placeholder'),
+  Category(
+      imgPath: 'images/categories/vector.png', hearts: 100, name: 'Companies'),
+  Category(
+      imgPath: 'images/categories/vector1.png',
+      hearts: 100,
+      name: 'Government Institutions'),
+  Category(
+      imgPath: 'images/categories/vector2.png',
+      hearts: 150,
+      name: 'Industries'),
+  Category(
+      imgPath: 'images/categories/vector.png',
+      hearts: 120,
+      name: 'Placeholder'),
+  Category(
+      imgPath: 'images/categories/vector.png', hearts: 100, name: 'Companies'),
+  Category(
+      imgPath: 'images/categories/vector1.png',
+      hearts: 100,
+      name: 'Government Institutions'),
+  Category(
+      imgPath: 'images/categories/vector2.png',
+      hearts: 150,
+      name: 'Industries'),
+  Category(
+      imgPath: 'images/categories/vector.png',
+      hearts: 120,
+      name: 'Placeholder'),
+  Category(
+      imgPath: 'images/categories/vector.png', hearts: 100, name: 'Companies'),
+  Category(
+      imgPath: 'images/categories/vector1.png',
+      hearts: 100,
+      name: 'Government Institutions'),
+  Category(
+      imgPath: 'images/categories/vector2.png',
+      hearts: 150,
+      name: 'Industries'),
+  Category(
+      imgPath: 'images/categories/vector.png',
+      hearts: 120,
+      name: 'Placeholder'),
 ];
 
 class Categories extends StatefulWidget {
@@ -35,6 +77,7 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Color(0xFFEDF1F9),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

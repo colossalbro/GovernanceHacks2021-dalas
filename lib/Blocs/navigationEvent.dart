@@ -22,3 +22,7 @@ class GoWatchList extends PageEvent {
 class GoFeed extends PageEvent {
   GoFeed() : super(pageIndex: 2);
 }
+
+class PostReview extends PageEvent {
+  PostReview() : super(pageIndex: 3);
+}
