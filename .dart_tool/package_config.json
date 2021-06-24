@@ -98,6 +98,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_feather_icons",
+      "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_feather_icons-2.0.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_form_builder",
       "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_form_builder-6.0.1",
       "packageUri": "lib/",
@@ -116,8 +122,32 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_secure_storage",
+      "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///home/bo/Downloads/flutter/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -154,6 +184,12 @@
     {
       "name": "path",
       "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "pedantic",
+      "rootUri": "file:///home/bo/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -254,7 +290,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-06-23T01:14:42.082550Z",
+  "generated": "2021-06-24T10:18:12.234445Z",
   "generator": "pub",
   "generatorVersion": "2.13.3"
 }

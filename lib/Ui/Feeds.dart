@@ -6,7 +6,8 @@ import 'package:flutter/rendering.dart';
 import 'Categories.dart';
 import 'ReviewDetails.dart' show containers;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../Blocs/navBloc.dart';
+import '../Blocs/navigationBloc/navBloc.dart';
+import 'ReviewDetails.dart';
 
 List<Category> newCats = categories.sublist(0, 2);
 
@@ -135,11 +136,18 @@ class _FeedsState extends State<Feeds> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'PayStack',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23.0),
+                                GestureDetector(
+                                  onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ReviewPage()),
+                                  ),
+                                  child: Text(
+                                    'PayStack',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23.0),
+                                  ),
                                 ),
                                 Text(
                                   'Over all rating',
@@ -194,13 +202,15 @@ class _FeedsState extends State<Feeds> {
                                     onPrimary: Color(0xFF00FFFE),
                                   ),
                                   onPressed: () => ScaffoldMessenger.of(context)
-                                      .showSnackBar(SnackBar(
-                                          backgroundColor: Color(0xFF00FFFE),
-                                          content: Text(
-                                            'PayStack has been added to your salad bowl!',
-                                            style:
-                                                TextStyle(color: Colors.black),
-                                          ))),
+                                      .showSnackBar(
+                                    SnackBar(
+                                      backgroundColor: Color(0xFF00FFFE),
+                                      content: Text(
+                                        'PayStack has been added to your salad bowl!',
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                    ),
+                                  ),
                                   child: Row(
                                     children: [
                                       Text(

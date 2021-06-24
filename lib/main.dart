@@ -4,8 +4,9 @@ import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:Dalas/Ui/Categories.dart';
 import 'package:flutter/material.dart';
+import 'Repository/constants.dart';
 import 'Ui/ReviewDetails.dart';
-import 'Blocs/navBloc.dart';
+import 'Blocs/navigationBloc/navBloc.dart';
 import 'Ui/watchlist.dart';
 import 'Ui/HomePage.dart';
 import 'Ui/Feeds.dart';
@@ -38,7 +39,6 @@ class _LandingState extends State<Landing> {
 }
 
 class LandingPage extends StatefulWidget {
-  NavigationBloc _bloc = NavigationBloc();
   int index = 0;
   Color active = Color(0xFF00FFFE);
 
@@ -57,7 +57,7 @@ class _LandingPageState extends State<LandingPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              widget._bloc.appBarTitle,
+              kNavBloc.appBarTitle,
               style: TextStyle(color: Colors.black),
             ),
             Image.asset('images/profile.png')
@@ -67,7 +67,7 @@ class _LandingPageState extends State<LandingPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() => widget.index = 2);
-          widget._bloc.add(GoFeed());
+          kNavBloc.add(GoFeed());
         },
         backgroundColor: widget.active,
         child: Image.asset('images/carrot.png'),
@@ -77,34 +77,30 @@ class _LandingPageState extends State<LandingPage> {
         activeColor: widget.active,
         inactiveColor: Colors.black,
         gapLocation: GapLocation.center,
-        onTap: (num) => (num == 0)
-            ? {setState(() => widget.index = 0), widget._bloc.add(GoHome())}
-            : {
-          setState(() => widget.index = 1),
-          widget._bloc.add(GoWatchList())
-        },
+        onTap: (num) =>
+        (num == 0)
+            ? {setState(() => widget.index = 0), kNavBloc.add(GoHome())}
+            : {setState(() => widget.index = 1), kNavBloc.add(GoWatchList())},
         activeIndex: widget.index,
         icons: [
-          Icons.compare_arrows_rounded,
+          Icons.home_outlined,
           Icons.rice_bowl_sharp,
         ],
       ),
       body: BlocBuilder<NavigationBloc, CurrentPage>(
-        bloc: widget._bloc,
+        bloc: kNavBloc,
         builder: (context, state) {
           if (state is HomePage)
             return WelcomePage();
           else if (state is FeedsPage)
             return Feeds(
-              bloc: widget._bloc,
+              bloc: kNavBloc,
             );
           else if (state is WatchListPage)
-            return WatchList(
-              bloc: widget._bloc,
-            );
+            return WatchList();
           else if (state is PostReviewPage)
             return NewPost(
-              bloc: widget._bloc,
+              bloc: kNavBloc,
             );
 
           return Container();
