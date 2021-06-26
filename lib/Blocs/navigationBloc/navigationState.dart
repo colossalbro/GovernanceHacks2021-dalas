@@ -28,3 +28,15 @@ class FeedsPage extends CurrentPage {
 class PostReviewPage extends CurrentPage {
   PostReviewPage() : super(pageNum: 3);
 }
+
+class OnBoardingPage extends CurrentPage {
+  OnBoardingPage() : super(pageNum: 4);
+}
+
+class LoginPage extends CurrentPage {
+  LoginPage() : super(pageNum: 5);
+}
+
+class PersonalProfilePage extends CurrentPage {
+  PersonalProfilePage() : super(pageNum: 6);
+}

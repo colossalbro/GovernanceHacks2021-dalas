@@ -10,13 +10,16 @@ import 'Blocs/navigationBloc/navBloc.dart';
 import 'Ui/watchlist.dart';
 import 'Ui/HomePage.dart';
 import 'Ui/Feeds.dart';
+import 'Ui/onboarding.dart';
+import 'Ui/SaladLogin.dart';
+import 'Ui/FirstPage.dart';
 
 void main() => runApp(
-  MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Landing(),
-  ),
-);
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Landing(),
+      ),
+    );
 
 class Landing extends StatefulWidget {
   const Landing({Key? key}) : super(key: key);
@@ -51,42 +54,52 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFEDF1F9),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              kNavBloc.appBarTitle,
-              style: TextStyle(color: Colors.black),
-            ),
-            Image.asset('images/profile.png')
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() => widget.index = 2);
-          kNavBloc.add(GoFeed());
-        },
-        backgroundColor: widget.active,
-        child: Image.asset('images/carrot.png'),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: AnimatedBottomNavigationBar(
-        activeColor: widget.active,
-        inactiveColor: Colors.black,
-        gapLocation: GapLocation.center,
-        onTap: (num) =>
-        (num == 0)
-            ? {setState(() => widget.index = 0), kNavBloc.add(GoHome())}
-            : {setState(() => widget.index = 1), kNavBloc.add(GoWatchList())},
-        activeIndex: widget.index,
-        icons: [
-          Icons.home_outlined,
-          Icons.rice_bowl_sharp,
-        ],
-      ),
+      appBar: (kNavBloc.showBars == true)
+          ? AppBar(
+              backgroundColor: Color(0xFFEDF1F9),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    kNavBloc.appBarTitle,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  Image.asset('images/profile.png')
+                ],
+              ),
+            )
+          : null,
+      floatingActionButton: (kNavBloc.showBars == true)
+          ? FloatingActionButton(
+              onPressed: () {
+                setState(() => widget.index = 2);
+                kNavBloc.add(GoFeed());
+              },
+              backgroundColor: widget.active,
+              child: Image.asset('images/carrot.png'),
+            )
+          : null,
+      floatingActionButtonLocation: (kNavBloc.showBars == true)
+          ? FloatingActionButtonLocation.centerDocked
+          : null,
+      bottomNavigationBar: (kNavBloc.showBars == true)
+          ? AnimatedBottomNavigationBar(
+              activeColor: widget.active,
+              inactiveColor: Colors.black,
+              gapLocation: GapLocation.center,
+              onTap: (num) => (num == 0)
+                  ? {setState(() => widget.index = 0), kNavBloc.add(GoHome())}
+                  : {
+                      setState(() => widget.index = 1),
+                      kNavBloc.add(GoWatchList())
+                    },
+              activeIndex: widget.index,
+              icons: [
+                Icons.home_outlined,
+                Icons.rice_bowl_sharp,
+              ],
+            )
+          : null,
       body: BlocBuilder<NavigationBloc, CurrentPage>(
         bloc: kNavBloc,
         builder: (context, state) {
@@ -102,6 +115,11 @@ class _LandingPageState extends State<LandingPage> {
             return NewPost(
               bloc: kNavBloc,
             );
+          else if (state is OnBoardingPage)
+            return OnBoarding();
+          else if (state is LoginPage)
+            return SaladLoginPage();
+          else if (state is PersonalProfilePage) return FirstPage();
 
           return Container();
         },

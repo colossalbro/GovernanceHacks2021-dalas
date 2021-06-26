@@ -26,3 +26,15 @@ class GoFeed extends PageEvent {
 class PostReview extends PageEvent {
   PostReview() : super(pageIndex: 3);
 }
+
+class LaunchOnboarding extends PageEvent {
+  LaunchOnboarding() : super(pageIndex: 4);
+}
+
+class GoLogin extends PageEvent {
+  GoLogin() : super(pageIndex: 5);
+}
+
+class GoPersonalProfile extends PageEvent {
+  GoPersonalProfile() : super(pageIndex: 6);
+}
