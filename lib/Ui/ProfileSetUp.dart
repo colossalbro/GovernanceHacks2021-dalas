@@ -1,4 +1,5 @@
 
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 class ProfileSetUp extends StatelessWidget {
@@ -25,17 +26,22 @@ class ProfileSetUp extends StatelessWidget {
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Stack(
-                alignment: AlignmentDirectional.bottomEnd,
-                children:[CircleAvatar(
-                  radius: 60,
+              Badge(
+                position: BadgePosition.bottomEnd(
+                  bottom: 5,
+                  end: 5
+                ),
+                badgeColor: Colors.blue,
+                elevation: 0,
+                badgeContent: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Icon(Icons.edit,color: Colors.black,),
+                ),
+                child: CircleAvatar(
+                  radius: 75,
+                  child: Image.asset("images/logo.png"),
                   backgroundColor: Color(0xffEDF1F9),
                 ),
-
-                Positioned(child: MaterialButton(
-                  onPressed: null,
-                  child: ,
-                )]
               )
 
             ],
