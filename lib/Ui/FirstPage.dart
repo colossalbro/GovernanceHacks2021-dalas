@@ -1,4 +1,4 @@
-import 'package:Dalas/Repository/constants.dart';
+
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {
@@ -38,7 +38,7 @@ class _FirstPageState extends State<FirstPage> {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () => kNavBloc.add(GoHome()),
+                    onPressed: () => null,
                     child: Text('View Rewards'),
                   ),
                 )

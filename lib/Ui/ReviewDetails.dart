@@ -5,9 +5,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../Repository/constants.dart';
 
-BoxDecoration activeBox = BoxDecoration(
+
+/*BoxDecoration activeBox = BoxDecoration(
   borderRadius: BorderRadius.circular(10.0),
   border: Border.all(color: Color(0xFF00FFFE)),
 );
@@ -522,4 +522,4 @@ List<Tag> tags = [
     ontap: () => print('tapped'),
     isActive: tags3,
   ),
-];
+];*/

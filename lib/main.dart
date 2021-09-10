@@ -1,25 +1,26 @@
-import 'package:Dalas/Ui/PostReview.dart';
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:splash_screen_view/SplashScreenView.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:Dalas/Ui/Categories.dart';
-import 'package:flutter/material.dart';
-import 'Repository/constants.dart';
-import 'Ui/ReviewDetails.dart';
-import 'Blocs/navigationBloc/navBloc.dart';
-import 'Ui/watchlist.dart';
-import 'Ui/HomePage.dart';
-import 'Ui/Feeds.dart';
-import 'Ui/onboarding.dart';
-import 'Ui/SaladLogin.dart';
-import 'Ui/FirstPage.dart';
 
-void main() => runApp(
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Landing(),
-      ),
-    );
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
+import 'package:splash_screen_view/SplashScreenView.dart';
+import 'package:flutter/material.dart';
+import 'Ui/onboarding.dart';
+
+
+
+
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) async{
+
+  });
+  await Firebase.initializeApp();
+  return runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Landing(),
+    ),
+  );
+}
 
 class Landing extends StatefulWidget {
   const Landing({Key? key}) : super(key: key);
@@ -54,35 +55,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: (kNavBloc.showBars == true)
-          ? AppBar(
-              backgroundColor: Color(0xFFEDF1F9),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    kNavBloc.appBarTitle,
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  Image.asset('images/profile.png')
-                ],
-              ),
-            )
-          : null,
-      floatingActionButton: (kNavBloc.showBars == true)
-          ? FloatingActionButton(
-              onPressed: () {
-                setState(() => widget.index = 2);
-                kNavBloc.add(GoFeed());
-              },
-              backgroundColor: widget.active,
-              child: Image.asset('images/carrot.png'),
-            )
-          : null,
-      floatingActionButtonLocation: (kNavBloc.showBars == true)
-          ? FloatingActionButtonLocation.centerDocked
-          : null,
-      bottomNavigationBar: (kNavBloc.showBars == true)
+      /*bottomNavigationBar: (kNavBloc.showBars == true)
           ? AnimatedBottomNavigationBar(
               activeColor: widget.active,
               inactiveColor: Colors.black,
@@ -99,31 +72,8 @@ class _LandingPageState extends State<LandingPage> {
                 Icons.rice_bowl_sharp,
               ],
             )
-          : null,
-      body: BlocBuilder<NavigationBloc, CurrentPage>(
-        bloc: kNavBloc,
-        builder: (context, state) {
-          if (state is HomePage)
-            return WelcomePage();
-          else if (state is FeedsPage)
-            return Feeds(
-              bloc: kNavBloc,
-            );
-          else if (state is WatchListPage)
-            return WatchList();
-          else if (state is PostReviewPage)
-            return NewPost(
-              bloc: kNavBloc,
-            );
-          else if (state is OnBoardingPage)
-            return OnBoarding();
-          else if (state is LoginPage)
-            return SaladLoginPage();
-          else if (state is PersonalProfilePage) return FirstPage();
-
-          return Container();
-        },
-      ),
+          : null,*/
+      body: OnBoarding()
     );
   }
 }

@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../Blocs/navigationBloc/navBloc.dart';
 import 'ReviewDetails.dart';
 
-List<Category> newCats = categories.sublist(0, 2);
+/*List<Category> newCats = categories.sublist(0, 2);
 
 class Feeds extends StatefulWidget {
   NavigationBloc bloc;
@@ -633,3 +633,4 @@ class _FeedsState extends State<Feeds> {
     );
   }
 }
+*/

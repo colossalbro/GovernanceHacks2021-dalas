@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381994428098",
+    "project_id": "governancehacks2021",
+    "storage_bucket": "governancehacks2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381994428098:android:9a59f4701d9d51cb3abd5b",
+        "android_client_info": {
+          "package_name": "com.example.dalas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381994428098-l8p69arriilarttpr166e84ehhuc3fh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHulj8KJjRaxHeyAwCVb20CbhiOPMazBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381994428098-l8p69arriilarttpr166e84ehhuc3fh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

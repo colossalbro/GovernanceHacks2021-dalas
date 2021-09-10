@@ -1,10 +1,8 @@
 import 'package:Dalas/Blocs/navigationBloc/navBloc.dart';
-import '../Repository/constants.dart';
-import 'package:Dalas/Repository/constants.dart';
 import 'package:flutter/material.dart';
 import '../Blocs/navigationBloc/navBloc.dart';
 
-class WatchList extends StatefulWidget {
+/*class WatchList extends StatefulWidget {
 
   @override
   _WatchListState createState() => _WatchListState();
@@ -3537,3 +3535,4 @@ List<Container> companies_backup = [
     ),
   ),
 ];
+*/

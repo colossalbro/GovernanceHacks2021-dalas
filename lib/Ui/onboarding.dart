@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import '../Repository/constants.dart';
+import 'LoginScreen.dart';
 
 List<PageViewModel> screens = [
   PageViewModel(
@@ -41,7 +42,11 @@ class _OnBoardingState extends State<OnBoarding> {
       pages: screens,
       showNextButton: true,
       done: Text("Done", style: TextStyle(fontWeight: FontWeight.w600)),
-      onDone: () => kNavBloc.add(GoLogin()),
+      onDone: () {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+          return LoginScreen();
+        }));
+      },
       next: Text("Next", style: TextStyle(fontWeight: FontWeight.w600)),
     );
     ;

@@ -1,4 +1,4 @@
-import 'package:Dalas/Repository/constants.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -84,7 +84,7 @@ class SaladLoginPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: ElevatedButton(
-                      onPressed: () => kNavBloc.add(GoPersonalProfile()),
+                      onPressed: () => null,
                       child: Text(
                         'Sign In',
                         style: TextStyle(color: Colors.white),

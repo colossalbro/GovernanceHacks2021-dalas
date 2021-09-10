@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">381994428098-l8p69arriilarttpr166e84ehhuc3fh8.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">381994428098</string>
+    <string name="google_api_key" translatable="false">AIzaSyDHulj8KJjRaxHeyAwCVb20CbhiOPMazBw</string>
+    <string name="google_app_id" translatable="false">1:381994428098:android:9a59f4701d9d51cb3abd5b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDHulj8KJjRaxHeyAwCVb20CbhiOPMazBw</string>
+    <string name="google_storage_bucket" translatable="false">governancehacks2021.appspot.com</string>
+    <string name="project_id" translatable="false">governancehacks2021</string>
+</resources>
