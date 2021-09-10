@@ -12,7 +12,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int _bottomNavIndex = 0;
   List <Widget> screens = [
     WelcomePage()
-
   ];
 
   void onItemTapped(int index){
@@ -44,7 +43,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         currentIndex: _bottomNavIndex,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
-        onTap: onItemTapped,
+        onTap: null,
         selectedLabelStyle: TextStyle(color: Colors.white,fontSize: 1.0),
         unselectedLabelStyle:  TextStyle(color: Colors.white,fontSize: 1.0),
       ),
