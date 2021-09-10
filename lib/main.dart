@@ -1,9 +1,11 @@
 
+import 'package:Dalas/Ui/LoginScreen.dart';
 import 'package:Dalas/Ui/ProfileSetUp.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:flutter/material.dart';
+import 'Ui/SignUpScreen.dart';
 import 'Ui/onboarding.dart';
 
 
@@ -18,7 +20,7 @@ void main()async {
   return runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProfileSetUp(),
+      home: LoginScreen(),
     ),
   );
 }
@@ -43,6 +45,7 @@ class _LandingState extends State<Landing> {
   }
 }
 
+// ignore: must_be_immutable
 class LandingPage extends StatefulWidget {
   int index = 0;
   Color active = Color(0xFF00FFFE);
