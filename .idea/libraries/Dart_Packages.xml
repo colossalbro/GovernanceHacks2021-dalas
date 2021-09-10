@@ -2,13 +2,6 @@
   <library name="Dart Packages" type="DartPackagesLibraryType">
     <properties>
       <option name="packageNameToDirsMap">
-        <entry key="animated_bottom_navigation_bar">
-          <value>
-            <list>
-              <option value="C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/animated_bottom_navigation_bar-0.3.2/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="archive">
           <value>
             <list>
@@ -352,6 +345,13 @@
             </list>
           </value>
         </entry>
+        <entry key="persistent_bottom_nav_bar">
+          <value>
+            <list>
+              <option value="C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/persistent_bottom_nav_bar-4.0.2/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="petitparser">
           <value>
             <list>
@@ -537,7 +537,6 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/animated_bottom_navigation_bar-0.3.2/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.1.2/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/badges-2.0.1/lib" />
@@ -583,6 +582,7 @@
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_platform_interface-2.0.1/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib" />
+      <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/persistent_bottom_nav_bar-4.0.2/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.1.0/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.2/lib" />
       <root url="file://C:/son/flutter/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.1/lib" />

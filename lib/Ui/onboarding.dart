@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import 'LoginScreen.dart';
 
 List<PageViewModel> screens = [
@@ -39,15 +40,15 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return IntroductionScreen(
+      dotsDecorator: DotsDecorator(color: Color(0xFF00c9c8),activeColor: Colors.black87,),
       pages: screens,
       showNextButton: true,
-      done: Text("Done", style: TextStyle(fontWeight: FontWeight.w600)),
+      done: Text("Done", style: TextStyle(fontWeight: FontWeight.w600,color: Color(0xFF00c9c8))),
       onDone: () {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-          return LoginScreen();
-        }));
+        Navigator.pushReplacement(context, PageTransition(type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 500),
+            child: LoginScreen()));
       },
-      next: Text("Next", style: TextStyle(fontWeight: FontWeight.w600)),
+      next: Text("Next", style: TextStyle(fontWeight: FontWeight.w600,color: Color(0xFF00c9c8))),
     );
     ;
   }

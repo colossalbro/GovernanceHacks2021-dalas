@@ -1,4 +1,5 @@
 
+import 'package:Dalas/Ui/NavigationScreen.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,13 @@ class ProfileSetUp extends StatelessWidget {
           child: Stack(
             alignment: AlignmentDirectional.topEnd,
             children: [
-              Icon(Icons.clear,color: Colors.black87,size: 20,),
+              GestureDetector(
+                  onTap: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                      return NavigationScreen();
+                    }));
+                  },
+                  child: Icon(Icons.clear,color: Colors.black87,size: 20,)),
               SingleChildScrollView(
                 child: Column(
                   children: [
@@ -193,7 +200,11 @@ class ProfileSetUp extends StatelessWidget {
                     MaterialButton(
                       color: Color(0xFF00c9c8),
                       shape: CircleBorder(),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                          return NavigationScreen();
+                        }));
+                      },
                       child: Padding(
                           padding: const EdgeInsets.all(15),
                           child: Icon(Icons.arrow_forward_rounded,color: Colors.white,)

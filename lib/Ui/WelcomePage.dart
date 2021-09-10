@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
+    return  Container(
         padding: EdgeInsets.all(25.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -52,7 +51,6 @@ class WelcomePage extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
+      );
   }
 }
