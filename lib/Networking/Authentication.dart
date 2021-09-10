@@ -61,15 +61,15 @@ class Authentication{
     } on Exception catch (e) {
       print(e.toString());
       if(e.toString().contains("network-request-failed")){
-       // Utils().displayToast("Network problem occured");
+        Utils().displayToast("Network problem occured");
       }
 
       if(e.toString().contains("The password is invalid")){
-      //  Utils().displayToast("Incorrect password");
+        Utils().displayToast("Incorrect password");
 
       }
       if(e.toString().contains("no user record")){
-     //   Utils().displayToast("User not found");
+        Utils().displayToast("User not found");
       }
     }
   }
@@ -78,18 +78,18 @@ class Authentication{
   Future <void> resetEmail(email)async{
     try {
       await  _auth.sendPasswordResetEmail(email: email);
-    //  Utils().displayToast(" Reset link has been sent to your email");
+      Utils().displayToast(" Reset link has been sent to your email");
 
 
 
     } on Exception catch (e) {
       print(e.toString());
       if(e.toString().contains("no user record")){
-       // Utils().displayToast("User not found");
+        Utils().displayToast("User not found");
       }
 
       if(e.toString().contains("network-request-failed")){
-      //  Utils().displayToast("Network problem occured");
+        Utils().displayToast("Network problem occured");
       }
 
     }

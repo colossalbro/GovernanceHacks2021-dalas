@@ -20,7 +20,7 @@ void main()async {
   return runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: Landing(),
     ),
   );
 }
@@ -59,24 +59,6 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      /*bottomNavigationBar: (kNavBloc.showBars == true)
-          ? AnimatedBottomNavigationBar(
-              activeColor: widget.active,
-              inactiveColor: Colors.black,
-              gapLocation: GapLocation.center,
-              onTap: (num) => (num == 0)
-                  ? {setState(() => widget.index = 0), kNavBloc.add(GoHome())}
-                  : {
-                      setState(() => widget.index = 1),
-                      kNavBloc.add(GoWatchList())
-                    },
-              activeIndex: widget.index,
-              icons: [
-                Icons.home_outlined,
-                Icons.rice_bowl_sharp,
-              ],
-            )
-          : null,*/
       body: OnBoarding()
     );
   }
