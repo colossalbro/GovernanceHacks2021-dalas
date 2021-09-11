@@ -76,7 +76,7 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Color(0xFFEDF1F9),
           title: Row(
@@ -92,7 +92,7 @@ class _CategoriesState extends State<Categories> {
                     'images/profile.png',
                   ))
             ],
-          )),
+          )),*/
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView.builder(

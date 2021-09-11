@@ -1,10 +1,20 @@
 
+import 'dart:io';
+
+import 'package:Dalas/Networking/Authentication.dart';
+import 'package:Dalas/Services/Utils.dart';
 import 'package:Dalas/Ui/NavigationScreen.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class ProfileSetUp extends StatelessWidget {
+class ProfileSetUp extends StatefulWidget {
 
+  @override
+  _ProfileSetUpState createState() => _ProfileSetUpState();
+}
+
+class _ProfileSetUpState extends State<ProfileSetUp> {
   final addressController = TextEditingController();
 
   final nameController = TextEditingController();
@@ -16,6 +26,12 @@ class ProfileSetUp extends StatelessWidget {
   final descriptionController = TextEditingController();
 
   double? screenHeight;
+
+  File? imageFile;
+
+  final _picker = ImagePicker();
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +45,7 @@ class ProfileSetUp extends StatelessWidget {
           child: Stack(
             alignment: AlignmentDirectional.topEnd,
             children: [
-              GestureDetector(
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-                      return NavigationScreen();
-                    }));
-                  },
-                  child: Icon(Icons.clear,color: Colors.black87,size: 20,)),
+
               SingleChildScrollView(
                 child: Column(
                   children: [
@@ -61,11 +71,11 @@ class ProfileSetUp extends StatelessWidget {
                       badgeColor: Color(0xFF00c9c8),
                       elevation: 0,
                       badgeContent: InkWell(child: Icon(Icons.edit),onTap: (){
-
+                      _pickImageFromGallery();
                       },),
                       child: CircleAvatar(
                         radius: 75,
-                        child: Image.asset("images/logo.png",width: 100,),
+                        child: imageFile == null?Image.asset("images/logo.png",width: 100,):Image.file(this.imageFile!,width: 75,),
                         backgroundColor: Color(0xff858b97),
                       ),
                     ),
@@ -73,6 +83,7 @@ class ProfileSetUp extends StatelessWidget {
                       height: screenHeight! * 0.075,
                     ),
                     Form(
+                      key: _formKey,
                       child: Column(
                         children: [
                           TextFormField(
@@ -101,7 +112,11 @@ class ProfileSetUp extends StatelessWidget {
                           TextFormField(
                             validator: (value){
                               if(value!.isEmpty){
-                                return "Email is Required";
+                                return "Email is required";
+                              }
+
+                              if(!Authentication().checkEmail(value)){
+                                return "Please enter a valid email address";
                               }
                               return null;
                             },
@@ -200,11 +215,7 @@ class ProfileSetUp extends StatelessWidget {
                     MaterialButton(
                       color: Color(0xFF00c9c8),
                       shape: CircleBorder(),
-                      onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-                          return NavigationScreen();
-                        }));
-                      },
+                      onPressed: onPressed,
                       child: Padding(
                           padding: const EdgeInsets.all(15),
                           child: Icon(Icons.arrow_forward_rounded,color: Colors.white,)
@@ -213,10 +224,47 @@ class ProfileSetUp extends StatelessWidget {
                   ],
                 ),
               ),
-            ],
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                      return NavigationScreen();
+                    }));
+                  },
+                  child: Icon(Icons.clear,color: Colors.black87,size: 20,)), ],
           ),
         ),
       ),
     );
   }
-}
+
+  Future <void> _pickImageFromGallery()async {
+    final PickedFile pickedFile = (await _picker.getImage(source: ImageSource.gallery))!;
+    setState(() {
+      this.imageFile = File(pickedFile.path);
+    });
+  }
+
+  Future <void> _pickImageFromCamera()async {
+    final PickedFile pickedFile = (await _picker.getImage(source: ImageSource.camera))!;
+    setState(() {
+      this.imageFile = File(pickedFile.path);
+    });
+  }
+
+  void onPressed(){
+    if(!_formKey.currentState!.validate()){
+      return;
+    }
+
+    if(imageFile == null){
+      Utils().displayToast("Upload company logo");
+    }
+    else{
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+        return NavigationScreen();
+      }));
+    }
+    }
+  }
+
+

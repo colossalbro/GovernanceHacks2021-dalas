@@ -1,13 +1,16 @@
 import 'dart:io';
 
+import 'package:Dalas/Blocs/navigationBloc/navBloc.dart';
 import 'package:Dalas/Blocs/profileBloc/profileBloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'PostReview.dart';
 
-/*BoxDecoration activeBox = BoxDecoration(
+
+BoxDecoration activeBox = BoxDecoration(
   borderRadius: BorderRadius.circular(10.0),
   border: Border.all(color: Color(0xFF00FFFE)),
 );
@@ -17,18 +20,21 @@ bool tags1 = false;
 bool tags2 = false;
 bool tags3 = false;
 
+// ignore: must_be_immutable
 class ReviewPage extends StatefulWidget {
   String display = 'review';
+
 
   @override
   _ReviewPageState createState() => _ReviewPageState();
 }
 
 class _ReviewPageState extends State<ReviewPage> {
+  bool sth = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         backgroundColor: Color(0xFFEDF1F9),
         iconTheme: IconThemeData(
           color: Colors.black,
@@ -37,13 +43,13 @@ class _ReviewPageState extends State<ReviewPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              kProfileBloc.appBarTitle,
+              "",
               style: TextStyle(color: Colors.black),
             ),
             Image.asset('images/profile.png')
           ],
         ),
-      ),
+      ),*/
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -156,7 +162,11 @@ class _ReviewPageState extends State<ReviewPage> {
                                     primary: Color(0xFF00FFFE),
                                     onPrimary: Colors.white,
                                   ),
-                                  onPressed: () => kNavBloc.add(PostReview()),
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                                      return NewPost();
+                                    }));
+                                  },
                                   child: Row(
                                     children: [
                                       Text(
@@ -200,7 +210,7 @@ class _ReviewPageState extends State<ReviewPage> {
                               tags1 = false;
                               tags2 = false;
                               tags3 = false;
-                              kProfileBloc.add(SeeReviews());
+
                             }),
                             child: Container(
                                 decoration:
@@ -215,7 +225,6 @@ class _ReviewPageState extends State<ReviewPage> {
                               tags1 = false;
                               tags2 = false;
                               tags3 = true;
-                              kProfileBloc.add(SeeProfile());
                             }),
                             child: Container(
                                 decoration:
@@ -232,13 +241,9 @@ class _ReviewPageState extends State<ReviewPage> {
           ),
           Expanded(
             flex: 5,
-            child: BlocBuilder<ProfileBloc, ProfileState>(
-              bloc: kProfileBloc,
-              builder: (context, state) {
-                if (state is ViewReviews)
-                  return Container(
+            child: Container(
                     padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                    child: ListView.builder(
+                    child: sth?ListView.builder(
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.only(bottom: 10.0),
@@ -298,10 +303,7 @@ class _ReviewPageState extends State<ReviewPage> {
                           ),
                         );
                       },
-                    ),
-                  );
-                else if (state is ViewProfile)
-                  return SingleChildScrollView(
+                  ): SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -425,15 +427,9 @@ class _ReviewPageState extends State<ReviewPage> {
                         ],
                       ),
                     ),
-                  );
-
-                return Container();
-              },
-            ),
+                  )
           ),
-        ],
-      ),
-    );
+    )]));
   }
 }
 
@@ -522,4 +518,4 @@ List<Tag> tags = [
     ontap: () => print('tapped'),
     isActive: tags3,
   ),
-];*/
+];

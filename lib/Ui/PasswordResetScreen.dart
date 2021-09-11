@@ -87,7 +87,7 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
                         ),
                         RaisedButton(
                           onPressed: (){
-                          //  resetEmail(email);
+                            resetEmail(email);
                           },
                           padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
                           child: Text("Reset Password",
@@ -102,6 +102,8 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
                         ),
                         GestureDetector(
                           onTap: (){
+
+
                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
                               return SignUpScreen();
                             }));
@@ -123,5 +125,23 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
         ),
       ),
     );
+  }
+
+
+  resetEmail(email)async{
+    if(!_formKey.currentState!.validate()){
+      return;
+    }
+
+    _formKey.currentState!.save();
+    setState(() {
+      loading = true;
+    });
+
+    Authentication().resetEmail(email).then((value){
+      setState(() {
+        loading = false;
+      });
+    });
   }
 }

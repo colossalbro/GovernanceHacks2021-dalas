@@ -1,6 +1,10 @@
 
 
+import 'package:Dalas/Ui/FirstPage.dart';
 import 'package:Dalas/Ui/NavigationScreen.dart';
+import 'package:Dalas/Ui/PostReview.dart';
+import 'package:Dalas/Ui/ProfileSetUp.dart';
+import 'package:Dalas/Ui/ReviewDetails.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
